@@ -1,16 +1,48 @@
 <template>
   <div id="app">
-    <hello></hello>
+    <section>
+      <h1>TODO LIST</h1>
+    </section>
+    <section>
+      <input v-model="newItem.task" @keyup.enter="addItem">
+      <ul>
+        <todo v-for="todo in todos" :todo="todo"></todo>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import { mapMutations } from 'vuex'
+import Todo from './components/Todo'
 
 export default {
   name: 'app',
+  data(){
+    return {
+      newItem: {task: '', done: false}
+    }
+  },
   components: {
-    Hello
+    Todo
+  },
+  methods: {
+    addItem(){
+      console.log('add new item, task value is '+ this.newItem.task);
+      var task = this.newItem.task;
+      if (task.trim()) {
+        this.$store.commit('addTodo', { task })
+      }
+      this.newItem.task = '';
+    },
+    ...mapMutations([
+      'addTodo'
+    ])
+  },
+  computed: {
+    todos () {
+      return this.$store.state.todos
+    }
   }
 }
 </script>

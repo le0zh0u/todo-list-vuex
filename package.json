@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "vue": "^2.1.0",
-    "vue-strap": "^1.1.36"
+    "vue-strap": "^1.1.36",
+    "vuex": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
