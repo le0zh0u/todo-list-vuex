@@ -34,10 +34,7 @@ export default {
         this.$store.commit('addTodo', { task })
       }
       this.newItem.task = '';
-    },
-    ...mapMutations([
-      'addTodo'
-    ])
+    }
   },
   computed: {
     todos () {
