@@ -29,6 +29,7 @@ export default {
 .todo {
   margin: 10px;
   list-style-type: none;
+  text-align: left;
 }
 .todo-done{
   color: gray;

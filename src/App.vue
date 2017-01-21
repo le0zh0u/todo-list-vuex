@@ -10,6 +10,7 @@
     <ul :class="['paddingLR20per']">
       <todo v-for="todo in todos" :todo="todo"></todo>
     </ul>
+
   </section>
 </div>
 </template>
